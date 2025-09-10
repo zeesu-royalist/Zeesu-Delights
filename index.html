@@ -3,217 +3,570 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zeesu Delights</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #9C1F3C;
+      --primary-light: #c44563;
+      --secondary: #F5F5DC;
+      --accent: #FF9F1C;
+      --dark: #333;
+      --light: #F0F4F8;
+      --white: #ffffff;
+      --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
     
-  <title>ZeesuDelights</title>
- 
-    <style>
-    body {
+    * {
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #F0F4F8;
+      box-sizing: border-box;
     }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+    
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+    
+/* nav */
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: center;
+  background: transparent;
+  z-index: 10;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.nav-menu li a:hover {
+  color: var(--accent);
+}
+
+    /* Header Styles */
     .header {
-      background-color: #9C1F3C;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
       text-align: center;
-      color: white;
-      padding: 30px;
-      border-radius: 5px;
+      color: var(--white);
+      padding: 40px 20px;
+      border-radius: 0 0 30px 30px;
+      box-shadow: var(--shadow);
+      margin-bottom: 30px;
+      position: relative;
+      overflow: hidden;
     }
+    
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.1' d='M0,128L48,117.3C96,107,192,85,288,112C384,139,480,213,576,218.7C672,224,768,160,864,138.7C960,117,1056,139,1152,149.3C1248,160,1344,160,1392,160L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+      background-size: cover;
+      background-position: center;
+    }
+    
+    .header-content {
+      position: relative;
+      z-index: 1;
+    }
+    
     .header img {
-      margin-bottom: -1em;
-      width: 100px;
+      width: 120px;
       height: auto;
+      margin-bottom: 0px;
+      margin-top: 10px;
+      filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.3));
+      transition: var(--transition);
     }
+    
+    .header img:hover {
+      transform: scale(1.05) rotate(5deg);
+    }
+    
     .header h1 {
-      margin: 13px 0;
-      text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.6);
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      margin: 15px 0;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+      letter-spacing: 1px;
     }
+    
     .header h4 {
-      margin-top: 0;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);    
+      font-weight: 400;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+      font-size: 1.2rem;
     }
+    
     .description {
-      text-align: center;
-      line-height: 1.5;
-      color: #333;
+      backdrop-filter: blur(5px);
       padding: 20px;
-      font-size: 12px;
+      border-radius: 15px;
+      margin: 20px auto;
+      max-width: 700px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
+    
     .description p {
-       color: #F5F5DC;
+      color: var(--white);
+      font-size: 0.5rem;
+      margin-bottom: 0;
     }
+    
+    /* Button Styles */
     .cta {
-      text-align: center;
-      margin: 20px 0;
+      margin: 25px 0 10px;
     }
-    .cta a {
-      font-size: 20px;
-      background-color: red;
-      padding: 10px 20px;
-      color: white;
+    
+    .cta-button {
+      display: inline-block;
+      background-color: var(--accent);
+      color: var(--white);
+      padding: 12px 30px;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: var(--transition);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      border: none;
+      cursor: pointer;
     }
-    .food-section {
+    
+    .cta-button:hover {
+      background-color: #e58a0a;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    }
+    
+    .cta-button:active {
+      transform: translateY(0);
+    }
+    
+    /* Section Styles */
+    .section {
+      padding: 50px 0;
       text-align: center;
-      padding: 20px;
     }
-    .food-section h3 {
-      margin-bottom: 10px;
+    
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary);
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
     }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 3px;
+    }
+    
+    .section-subtitle {
+      color: var(--dark);
+      margin-bottom: 30px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    /* Food Gallery */
     .food-gallery {
       display: flex;
       justify-content: center;
-      gap: 15px;
+      gap: 25px;
       flex-wrap: wrap;
+      margin-top: 30px;
     }
-    .food-gallery img {
-      width: 30%;
-      max-width: 300px;
-      border-radius: 10px;
+    
+    .food-card {
+      width: 100%;
+      max-width: 350px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      background: var(--white);
     }
-    .video-section {
-      text-align: center;
-      padding: 2px;
+    
+    .food-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
     }
-    .video-section iframe {
-      width: 30%;
-      max-width: 300px;
-      height: auto;
-      border-radius: 10px; /* To match image border radius */
+    
+    .food-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: var(--transition);
     }
-    @media (max-width: 768px) {
-      .food-gallery img,
-      .video-section iframe {
-        width: 450%;
-      }
+    
+    .food-card:hover img {
+      transform: scale(1.05);
     }
-    @media (max-width: 480px) {
-      .header h1 {
-        font-size: 1.5em;
-      }
-      .header img {
-        width: 100px;
-      }
-      .food-gallery img,
-      .video-section iframe {
-        width: 100%;
-      }
+    
+    .food-card-content {
+      padding: 20px;
     }
-
-    .video-section iframe {
-      width: 60%;
+    
+    .food-card h4 {
+      color: var(--primary);
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+    
+    .food-card p {
+      color: #666;
+      font-size: 0.95rem;
+    }
+    
+    /* Video Section */
+    .video-container {
+      position: relative;
+      width: 100%;
       max-width: 800px;
-      height: 300px;
-      border-radius: 10px;
-      margin-left: -10%;
+      margin: 30px auto;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    
+    .video-container iframe {
+      width: 100%;
+      height: 400px;
+      display: block;
+    }
+    
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: var(--white);
+      padding: 60px 0 30px;
+      margin-top: 50px;
+      border-radius: 50px 0 0 0;
+      clip-path: ellipse(120% 100% at 50% 100%);
+    }
+    
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    
+    .footer-column {
+      flex: 1;
+      min-width: 250px;
+      margin-bottom: 30px;
+    }
+    
+    .footer-column h4 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer-column h4::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: var(--accent);
+    }
+    
+    .footer-links {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 12px;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      text-decoration: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+    }
+    
+    .footer-links a:hover {
+      color: var(--white);
+      transform: translateX(5px);
+    }
+    
+    .footer-links i {
+      margin-right: 10px;
+      font-size: 0.9rem;
+    }
+    
+    .copyright {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+    }
+    
+    .copyright a {
+      color: var(--white);
+      text-decoration: none;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .header h1 {
+        font-size: 2.3rem;
+      }
+      
+      .section-title {
+        font-size: 2rem;
+      }
     }
     
     @media (max-width: 768px) {
-      .video-section iframe {
-        width: 80%;
-        margin-left: -5%;
+      .header {
+        padding: 30px 15px;
+      }
+      
+      .header h1 {
+        font-size: 2rem;
+      }
+      
+      .food-card {
+        max-width: 100%;
+      }
+      
+      .video-container iframe {
+        height: 300px;
+      }
+      
+      footer {
+        clip-path: ellipse(140% 100% at 50% 100%);
       }
     }
     
-    @media (max-width: 4080px) {
-      .video-section iframe {
-        width: 100%;
-        margin-left: 0;
+    @media (max-width: 576px) {
+      .header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .header h4 {
+        font-size: 1.1rem;
+      }
+      
+      .section-title {
+        font-size: 1.7rem;
+      }
+      
+      .video-container iframe {
+        height: 250px;
+      }
+      
+      footer {
+        clip-path: ellipse(160% 100% at 50% 100%);
+        padding: 50px 0 20px;
+      }
+      
+      .footer-column {
+        min-width: 100%;
       }
     }
-
-
   </style>
 </head>
 <body>
 
 
 
+<!-- Header Section -->
+<header class="header">
+  <nav class="navbar">
+    <ul class="nav-menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
 
- <hr><div class="header">
+  <div class="container header-content">
     <img src="https://cdn-icons-png.flaticon.com/256/9496/9496790.png" alt="Zeesu Delights Logo">
     <h1>Welcome to Zeesu Delights</h1>
-    <h4 style="margin-bottom: -20px;">Taste the Difference with Every Bite</h4>
-
-  <div class="description">
-    <p style="margin-bottom: -10px;">Where good food brings people together.<br>
-    Whether you're craving comfort, health, gourmet meals, we have it all.<br>
-    Made with fresh ingredients, ensuring something for every taste. Enjoy online ordering, fast delivery.</p>
-  </div>
-  <div class="cta">
-    <a href="https://www.google.com/search?q=zeesu+royalist" target="_blank">Read more</a>
-  </div> 
-  </div> <hr>
-
-
-  <div class="food-section">
-    <h3>- Essential Foods We Offer -</h3>
-    <p>Order now and indulge in a memorable dining experience from the comfort of your home</p>
-    <div class="food-gallery">
-      <img src="https://images.immediate.co.uk/production/volatile/sites/30/2022/08/Corndogs-7832ef6.jpg?quality=90&resize=556,505" alt="Corndogs">
-      <img src="https://www.foodandwine.com/thmb/jJupeS5vHMkh9TBsJkwdaG1uPY8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Tamarind-Chicken-FT-RECIPE0522-80072d93f7bc4bc7abf1dcf5b5317b0c.jpg">
-      <img src="https://media.istockphoto.com/id/161170090/photo/pancakes-with-berries-and-maple-syrup.jpg?b=1&s=612x612&w=0&k=20&c=coMq3l7x8X-H4MyDCw8dK3jaXVmVmLSBr4p8X9UkC5E=" alt="Pancakes with Berries">
+    <h4>Taste the Difference with Every Bite</h4>
+    <div class="cta">
+      <a href="https://www.google.com/search?q=zeesu+royalist" target="_blank" class="cta-button">Explore Our Menu</a>
     </div>
   </div>
+</header>
 
-  <div class="video-section">
-    <h3>-  Savor the Flavors of Freshness -</h3>
-    <p>Our menu is crafted to satisfy all taste buds with a variety of cuisines and flavors, using only the freshest ingredients.</p>
 
-    <iframe 
-      src="https://www.youtube.com/embed/uFe6lZMSjPw?si=PZzyA5AZP73fH8qh" 
-      title="YouTube video player" 
-      frameborder="0" 
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-      allowfullscreen>
-    </iframe>
+  <div class="container">
+    <!-- Food Gallery Section -->
+    <section class="section">
+      <h2 class="section-title">Essential Foods We Offer</h2>
+      <p class="section-subtitle">Order now and indulge in a memorable dining experience from the comfort of your home</p>
+      
+      <div class="food-gallery">
+        <div class="food-card">
+          <img src="https://images.immediate.co.uk/production/volatile/sites/30/2022/08/Corndogs-7832ef6.jpg?quality=90&resize=556,505" alt="Corndogs">
+          <div class="food-card-content">
+            <h4>Delicious Corndogs</h4>
+            <p>Golden crispy exterior with juicy hot dog inside, perfect for a quick snack.</p>
+          </div>
+        </div>
+        
+        <div class="food-card">
+          <img src="https://www.foodandwine.com/thmb/jJupeS5vHMkh9TBsJkwdaG1uPY8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Tamarind-Chicken-FT-RECIPE0522-80072d93f7bc4bc7abf1dcf5b5317b0c.jpg" alt="Gourmet Chicken">
+          <div class="food-card-content">
+            <h4>Gourmet Chicken</h4>
+            <p>Succulent chicken dishes with exquisite flavors that will tantalize your taste buds.</p>
+          </div>
+        </div>
+        
+        <div class="food-card">
+          <img src="https://media.istockphoto.com/id/161170090/photo/pancakes-with-berries-and-maple-syrup.jpg?b=1&s=612x612&w=0&k=20&c=coMq3l7x8X-H4MyDCw8dK3jaXVmVmLSBr4p8X9UkC5E=" alt="Pancakes with Berries">
+          <div class="food-card-content">
+            <h4>Berry Pancakes</h4>
+            <p>Fluffy pancakes topped with fresh berries and maple syrup, a breakfast delight.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Video Section -->
+    <section class="section">
+      <h2 class="section-title">Savor the Flavors of Freshness</h2>
+      <p class="section-subtitle">Our menu is crafted to satisfy all taste buds with a variety of cuisines and flavors, using only the freshest ingredients.</p>
+      
+      <div class="video-container">
+        <iframe 
+          src="https://www.youtube.com/embed/uFe6lZMSjPw?si=PZzyA5AZP73fH8qh" 
+          title="YouTube video player" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+    
+    <!-- Additional Food Section -->
+    <section class="section">
+      <h2 class="section-title">Satisfy Your Culinary Cravings</h2>
+      <p class="section-subtitle">Our chefs bring a wealth of culinary expertise to create meals that are not only delicious but also wholesome and nutritious.</p>
+      
+      <div class="food-gallery">
+        <div class="food-card">
+          <img src="https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/04/a0004391/img/basic/a0004391_main.jpg?20210209114343" alt="Japanese Cuisine">
+          <div class="food-card-content">
+            <h4>Japanese Specialties</h4>
+            <p>Authentic Japanese dishes prepared with precision and the finest ingredients.</p>
+          </div>
+        </div>
+        
+        <div class="food-card">
+          <img src="https://www.kobejones.com.au/wp-content/uploads/2017/10/kobejones-Health-Benefits-of-Japanese-Food.jpg" alt="Healthy Options">
+          <div class="food-card-content">
+            <h4>Healthy Selections</h4>
+            <p>Nutritious meals that don't compromise on taste, for the health-conscious foodie.</p>
+          </div>
+        </div>
+        
+        <div class="food-card">
+          <img src="https://loveincorporated.blob.core.windows.net/contentimages/gallery/d4c1d307-6216-43ce-b6de-a7c6df0faba3-katherine%20sabbath.jpg" alt="Decadent Desserts">
+          <div class="food-card-content">
+            <h4>Decadent Desserts</h4>
+            <p>Indulge in our sweet creations that provide the perfect ending to any meal.</p>
+          </div>
+        </div>
+      </div>
+      
+      <p class="section-subtitle" style="margin-top: 30px;">
+        Whether you're looking to satisfy your late-night cravings or plan a special meal with loved ones, our wide range of menu options will leave you spoiled for choice. From sizzling starters to mouthwatering mains and decadent desserts, we guarantee a gastronomic journey you won't forget. Plus, we offer customized options to cater to your dietary preferences.
+      </p>
+    </section>
   </div>
-
-  <div class="food-section">
-    <h3>- Satisfy your hunger, indulge your taste buds -</h3>
-    <p>Our chefs bring a wealth of culinary expertise to create meals that are not only delicious but also wholesome and nutritious.</p>
-    <div class="food-gallery">
-      <img src="https://rimage.gnst.jp/livejapan.com/public/article/detail/a/00/04/a0004391/img/basic/a0004391_main.jpg?20210209114343">
-      <img src="https://www.kobejones.com.au/wp-content/uploads/2017/10/kobejones-Health-Benefits-of-Japanese-Food.jpg" alt="Roast Chicken">
-      <img src="https://ocakes.in/hyderabad/storage/app/public/images/item/item-642f5b5885a38.jpg" alt="Pancakes with Berries">
-        <p>Whether you're looking to satisfy your late-night cravings or plan a special meal with loved ones, our wide range of menu options will leave you spoiled for choice. From sizzling starters to mouthwatering mains and decadent desserts, we guarantee a gastronomic journey you won't forget. Plus, we offer customized options to cater to your dietary preferences.</p>
-    </div>
-  </div>
-
- <br> 
-<footer style="background-color: #9C1F3C; color: white; padding: 20px; text-align: center; margin-top: 0px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; clip-path: ellipse(120% 100% at 0% 50%);">
-  <div style="margin-bottom: 20px;">
-    <h3 style="color:white; text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);">I wish for your life to be delicious.</h3>
-  </div>
-
-  <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
-    <div style="flex: 1; margin: 10px;">
-      <h4 style="color:white">Navigation</h4>
-      <a href="#home" style="color: #D3D3D3; text-decoration: none;">Home</a><br>
-      <a href="#about" style="color: #D3D3D3; text-decoration: none;">About</a><br>
-      <a href="#contact" style="color: #D3D3D3; text-decoration: none;">Contact</a>
-    </div>
-
-    <div style="flex: 1; margin: 10px;">
-      <h4>Social Links</h4>
-      <a href="https://wa.me/message/EERUGRMFY7U4M1" target="blank" style="color: #D3D3D3; text-decoration: none;">WhatsApp</a><br>
-      <a href="https://www.instagram.com/zeesu_royalist?igshid=1aq12r21i81r1" target="blank" style="color: #D3D3D3; text-decoration: none;">Instagram</a><br>
-      <a href="https://www.youtube.com/@zeesu_royalist" target="blank" style="color: #D3D3D3; text-decoration: none;">YouTube</a>
-    </div>
-
-    <div style="flex: 1; margin: 10px;">
-      <h4>Other Links</h4>
-      <a href="https://www.linkedin.com/in/mohammad-jishan-4361972ba/" target="blank" style="color: #D3D3D3; text-decoration: none;">LinkedIn</a><br>
-      <a href="https://x.com/zeesuroyalist" target="blank" style="color: #D3D3D3; text-decoration: none;">Twitter</a><br>
-      <a href="https://zeesuroyalist.weebly.com" target="blank" style="color: #D3D3D3; text-decoration: none;">Other Websites</a>
-    </div>
-  </div>
-
-  <p style="margin-top: 20px;">&copy; 2024 Zeesu Mart. All Rights Reserved.</p>
-  <a href="mailto:example@example.com" target="blank">rzeesu@gamil.com</a>
-</footer> <hr> <br> 
   
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+            <li><a href="#about"><i class="fas fa-chevron-right"></i> About</a></li>
+            <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Social Links</h4>
+          <ul class="footer-links">
+            <li><a href="https://wa.me/9999736978" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+            <li><a href="https://www.instagram.com/zeesu_royalist?igshid=1aq12r21i81r1" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+            <li><a href="https://www.youtube.com/@zeesu_royalist" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Other Links</h4>
+          <ul class="footer-links">
+            <li><a href="https://www.linkedin.com/in/mohammad-jishan-4361972ba/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+            <li><a href="https://x.com/zeesuroyalist" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+            <li><a href="https://zeesuroyalist.weebly.com" target="_blank"><i class="fas fa-globe"></i> Other Websites</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2024 Zeesu Delights. All Rights Reserved. | <a href="mailto:rzeesu@gmail.com">rzeesu@gmail.com</a></p>
+        <p style="margin-top: 10px; font-style: italic;">Powered by The Zeesu Royalist Company</p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
